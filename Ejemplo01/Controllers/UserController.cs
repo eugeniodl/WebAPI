@@ -1,5 +1,6 @@
 ﻿using Ejemplo01.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Ejemplo01.Controllers
@@ -8,15 +9,14 @@ namespace Ejemplo01.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private static List<User> Users = new List<User>
-        {
-            new User { Id = 1, Name = "Juan López", Email = "juan@example.com"},
-            new User { Id = 2, Name = "María Pérez", Email = "maria@example.com"},
-            new User { Id = 3, Name = "Roberto Gómez", Email = "roberto@example.com"}
+        private static List<User> Users = new List<User> {
+            new User { Id = 1, Name = "Juan Pérez", Email = "juan@example.com" },
+            new User { Id = 2, Name = "María López", Email = "maria@example.com" },
+            new User { Id = 3, Name = "Javier Trejos", Email = "javier@example.com" }
         };
 
-        [HttpGet]
         // GET: api/user
+        [HttpGet]
         public ActionResult<IEnumerable<User>> GetUsers()
         {
             return Users;
@@ -27,7 +27,7 @@ namespace Ejemplo01.Controllers
         public ActionResult<User> GetUser(int id)
         {
             var user = Users.FirstOrDefault(u => u.Id == id);
-            if (user == null)
+            if(user == null)
             {
                 return NotFound();
             }
@@ -48,8 +48,8 @@ namespace Ejemplo01.Controllers
         [HttpPut("{id}")]
         public ActionResult UpdateUser(int id, User updatedUser)
         {
-            var user = Users.FirstOrDefault(u => u.Id == id);
-            if (user == null)
+            var user = Users.FirstOrDefault(u =>u.Id == id);
+            if( user == null )
             {
                 return NotFound();
             }
@@ -58,12 +58,12 @@ namespace Ejemplo01.Controllers
             return NoContent();
         }
 
-        // DELETE: api/users/1
+        // DELETE: api/user/1
         [HttpDelete("{id}")]
         public ActionResult DeleteUser(int id)
         {
-            var user = Users.FirstOrDefault(u =>u.Id == id);
-            if(user == null)
+            var user = Users.FirstOrDefault(u => u.Id == id);
+            if(user == null )
             {
                 return NotFound();
             }

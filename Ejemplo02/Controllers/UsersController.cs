@@ -8,11 +8,11 @@ namespace Ejemplo02.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class UsersController : ControllerBase
     {
         private readonly SampleDbContext _context;
 
-        public UserController(SampleDbContext context)
+        public UsersController(SampleDbContext context)
         {
             _context = context;
         }
@@ -22,5 +22,6 @@ namespace Ejemplo02.Controllers
         {
             return await _context.Users.ToListAsync();
         }
+
     }
 }
