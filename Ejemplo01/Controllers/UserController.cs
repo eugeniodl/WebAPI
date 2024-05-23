@@ -6,23 +6,23 @@ namespace Ejemplo01.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsersController : ControllerBase
+    public class UserController : ControllerBase
     {
         private static List<User> Users = new List<User>
         {
-            new User { Id = 1, Name = "René Ramírez", Email = "rene@example.com" },
-            new User { Id = 2, Name = "Dolores Figueroa", Email = "lola@example.com" },
-            new User { Id = 3, Name = "Eduardo Manzanero", Email = "eduardo@example.com" }
+            new User { Id = 1, Name = "Juan López", Email = "juan@example.com"},
+            new User { Id = 2, Name = "María Pérez", Email = "maria@example.com"},
+            new User { Id = 3, Name = "Roberto Gómez", Email = "roberto@example.com"}
         };
 
-        // GET: api/users
         [HttpGet]
+        // GET: api/user
         public ActionResult<IEnumerable<User>> GetUsers()
         {
             return Users;
         }
 
-        // GET: api/users/1
+        // GET: api/user/1
         [HttpGet("{id}")]
         public ActionResult<User> GetUser(int id)
         {
@@ -34,7 +34,7 @@ namespace Ejemplo01.Controllers
             return user;
         }
 
-        // POST: api/users
+        // POST: api/user
         [HttpPost]
         public ActionResult<User> CreateUser(User user)
         {
@@ -44,7 +44,7 @@ namespace Ejemplo01.Controllers
                 new { id = user.Id }, user);
         }
 
-        // PUT: api/users/1
+        // PUT: api/user/1
         [HttpPut("{id}")]
         public ActionResult UpdateUser(int id, User updatedUser)
         {
@@ -62,8 +62,8 @@ namespace Ejemplo01.Controllers
         [HttpDelete("{id}")]
         public ActionResult DeleteUser(int id)
         {
-            var user = Users.FirstOrDefault(u => u.Id == id);
-            if (user == null)
+            var user = Users.FirstOrDefault(u =>u.Id == id);
+            if(user == null)
             {
                 return NotFound();
             }

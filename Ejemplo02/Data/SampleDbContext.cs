@@ -5,12 +5,11 @@ namespace Ejemplo02.Data
 {
     public class SampleDbContext : DbContext
     {
-        public DbSet<User> Users { get; set; }
-
-        public SampleDbContext(DbContextOptions<SampleDbContext> options)
+        public SampleDbContext(DbContextOptions<SampleDbContext> options) 
             : base(options)
-        {
-            
+        {            
         }
+
+        public DbSet<User> Users { get; set; }
     }
 }

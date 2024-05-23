@@ -8,13 +8,13 @@ namespace Ejemplo02.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsersController : ControllerBase
+    public class UserController : ControllerBase
     {
         private readonly SampleDbContext _context;
 
-        public UsersController(SampleDbContext context)
+        public UserController(SampleDbContext context)
         {
-            _context = context;            
+            _context = context;
         }
 
         [HttpGet]
