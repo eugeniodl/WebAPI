@@ -1,5 +1,5 @@
-﻿using Ejemplo02.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using SharedModels;
 
 namespace Ejemplo02.Data
 {

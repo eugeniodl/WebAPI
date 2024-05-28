@@ -1,8 +1,7 @@
 ﻿using Ejemplo02.Data;
-using Ejemplo02.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using SharedModels;
 
 namespace Ejemplo02.Controllers
 {

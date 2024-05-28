@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Ejemplo02.Models
+namespace SharedModels
 {
     public class User
     {
