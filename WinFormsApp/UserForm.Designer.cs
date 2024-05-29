@@ -79,6 +79,7 @@
             btnAdd.TabIndex = 4;
             btnAdd.Text = "Agregar";
             btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnUpdate
             // 
@@ -88,6 +89,7 @@
             btnUpdate.TabIndex = 5;
             btnUpdate.Text = "Modificar";
             btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // btnDelete
             // 
@@ -97,13 +99,16 @@
             btnDelete.TabIndex = 6;
             btnDelete.Text = "Eliminar";
             btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // dgvUsers
             // 
             dgvUsers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvUsers.Location = new Point(41, 213);
             dgvUsers.Name = "dgvUsers";
+            dgvUsers.ReadOnly = true;
             dgvUsers.RowHeadersWidth = 62;
+            dgvUsers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvUsers.Size = new Size(720, 225);
             dgvUsers.TabIndex = 7;
             // 
