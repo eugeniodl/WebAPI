@@ -44,7 +44,7 @@ namespace Ejemplo02.Controllers
             return CreatedAtAction("GetUser", new { id = user.UserId }, user);
         }
 
-        [HttpPut]
+        [HttpPut("{id}")]
         public async Task<IActionResult> PutUser(int id, User user)
         {
             if(id != user.UserId)

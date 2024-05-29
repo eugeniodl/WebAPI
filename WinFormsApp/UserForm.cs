@@ -45,13 +45,27 @@ namespace WinFormsApp
 
         private async void btnUpdate_Click(object sender, EventArgs e)
         {
-            if(dgvUsers.SelectedRows.Count > 0)
+            if (dgvUsers.SelectedRows.Count > 0)
             {
                 var user = (User)dgvUsers.SelectedRows[0].DataBoundItem;
                 user.UserName = txtUserName.Text;
                 user.Email = txtEmail.Text;
 
-                var response = await _httpClient.PutAsJsonAsync($"Users?id={user.UserId}", user);
+                var response = await _httpClient.PutAsJsonAsync($"Users/{user.UserId}", user);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    await LoadUsersAsync();
+                }
+            }
+        }
+
+        private async void btnDelete_Click(object sender, EventArgs e)
+        {
+            if(dgvUsers.SelectedRows.Count > 0)
+            {
+                var user = (User)dgvUsers.SelectedRows[0].DataBoundItem;
+                var response = await _httpClient.DeleteAsync($"Users/{user.UserId}");
 
                 if (response.IsSuccessStatusCode)
                 {
